@@ -15,7 +15,8 @@ Surveyed subsystems and their terminal classification.
 
 | target | mechanism | outcome |
 |---|---|---|
-| difference/lighter/darker | dead-clip removal | READY_FOR_PR (~1.8x difference) |
+| difference | dead-clip removal | READY_FOR_PR (~1.8x) |
+| lighter/darker | dead-clip removal | NO_SIGNAL (compiler already removes the clip) |
 | multiply/screen/add/subtract | division/clip | NO_SIGNAL |
 
 ## Statistics (src/libImaging/Histo.c)

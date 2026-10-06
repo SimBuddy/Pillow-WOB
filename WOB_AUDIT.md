@@ -45,7 +45,7 @@ publish each as an independent, reviewable contribution.
 | RGB <-> RGBA conversions | 4-pixel 32-bit shuffle | ~6.7x | READY_FOR_PR | wob/rgb2rgba-performance |
 | L -> RGB/RGBA conversions | 32-bit byte broadcast | ~4.7x | READY_FOR_PR | candidate/converter |
 | RGB/YCbCr/LAB/HSV histogram | drop discarded pad byte | ~3.3x | READY_FOR_PR | candidate/histogram |
-| ImageChops.difference | drop provably-dead clip | ~1.8x | READY_FOR_PR | candidate/imagechops-bounds |
+| ImageChops.difference | drop provably-dead clip | ~1.8x | READY_FOR_PR | candidate/imagechops-difference |
 | Image.copy() zero-width | guard memcpy(NULL,0) | correctness | READY_FOR_PR | candidate/copy-zero-width |
 
 ## Full rebuild
