@@ -84,6 +84,10 @@ create(Imaging im1, Imaging im2, const ModeID mode) {
     return ImagingNewDirty(im1->mode, xsize, ysize);
 }
 
+/* The maximum, minimum and absolute difference of two bytes are always within
+   0..255, so the clipping branches added by the CHOP macro are unnecessary for
+   these three operations. The no-clip CHOP2 loop lets the compiler emit
+   branchless code. */
 /**
  * Return a newly allocated image containing the lighter pixels of the two images.
  *
@@ -91,7 +95,7 @@ create(Imaging im1, Imaging im2, const ModeID mode) {
  */
 Imaging
 ImagingChopLighter(Imaging imIn1, Imaging imIn2) {
-    CHOP((in1[x] > in2[x]) ? in1[x] : in2[x]);
+    CHOP2(in1[x] > in2[x] ? in1[x] : in2[x], IMAGING_MODE_UNKNOWN);
 }
 
 /**
@@ -101,7 +105,7 @@ ImagingChopLighter(Imaging imIn1, Imaging imIn2) {
  */
 Imaging
 ImagingChopDarker(Imaging imIn1, Imaging imIn2) {
-    CHOP((in1[x] < in2[x]) ? in1[x] : in2[x]);
+    CHOP2(in1[x] < in2[x] ? in1[x] : in2[x], IMAGING_MODE_UNKNOWN);
 }
 
 /**
@@ -112,7 +116,7 @@ ImagingChopDarker(Imaging imIn1, Imaging imIn2) {
  */
 Imaging
 ImagingChopDifference(Imaging imIn1, Imaging imIn2) {
-    CHOP(abs((int)in1[x] - (int)in2[x]));
+    CHOP2(abs((int)in1[x] - (int)in2[x]), IMAGING_MODE_UNKNOWN);
 }
 
 /**
