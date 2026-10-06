@@ -140,6 +140,13 @@ Faster RGB and RGBA conversions
 Converting between ``RGB`` and ``RGBA`` modes, and the related conversions
 involving ``RGBa`` and ``RGBX``, is now faster.
 
+Faster ImageChops.difference
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The absolute difference of two bytes is always within the 0-255 range, so
+:py:func:`~PIL.ImageChops.difference` no longer clips its result. This makes the
+operation faster.
+
 Fixed combining GIF frames with missing durations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
