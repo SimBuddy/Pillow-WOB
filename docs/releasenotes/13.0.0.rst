@@ -154,6 +154,12 @@ Faster histograms for three-channel images
 three-channel images, which was discarded from the result. This makes the
 histogram of RGB, YCbCr, LAB and HSV images faster.
 
+Faster conversions from L mode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Converting an image from ``L`` mode to ``RGB``, ``RGBA``, ``RGBX`` or ``LA``
+mode is now faster.
+
 Fixed combining GIF frames with missing durations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
