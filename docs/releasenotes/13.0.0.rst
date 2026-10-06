@@ -147,6 +147,13 @@ The absolute difference of two bytes is always within the 0-255 range, so
 :py:func:`~PIL.ImageChops.difference` no longer clips its result. This makes the
 operation faster.
 
+Faster histograms for three-channel images
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:py:meth:`~PIL.Image.Image.histogram` no longer counts the padding byte of
+three-channel images, which was discarded from the result. This makes the
+histogram of RGB, YCbCr, LAB and HSV images faster.
+
 Fixed combining GIF frames with missing durations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
