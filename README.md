@@ -4,7 +4,7 @@
 
 # Pillow
 
-## Python Imaging Library (Fork)
+## Python Imaging Library (Fork) -some suggested speedups.
 
 Pillow is the friendly PIL fork by [Jeffrey 'Alex' Clark and
 contributors](https://github.com/python-pillow/Pillow/graphs/contributors).
