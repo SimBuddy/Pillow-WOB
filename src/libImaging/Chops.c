@@ -116,7 +116,9 @@ ImagingChopDarker(Imaging imIn1, Imaging imIn2) {
  */
 Imaging
 ImagingChopDifference(Imaging imIn1, Imaging imIn2) {
-    CHOP2(abs((int)in1[x] - (int)in2[x]), IMAGING_MODE_UNKNOWN);
+    /* Avoid abs() here, as its behaviour is not portable across toolchains. */
+    CHOP2(((int)in1[x] > (int)in2[x]) ? (in1[x] - in2[x]) : (in2[x] - in1[x]),
+          IMAGING_MODE_UNKNOWN);
 }
 
 /**
